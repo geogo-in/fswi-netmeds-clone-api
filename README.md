@@ -38,8 +38,8 @@ Users can place orders for multiple products. __Order__ model should have the fo
 ### Banner
 Banners are image sliders that are present in website homepage. 
 **Banner** model should have the following attributes: *bannerImage (type: image), isActive (type: boolean), linkedToUrl (type: string)*.
-- [ ] API for listing all active banners
-- [ ] Create new banner
+- [x] API for listing all active banners
+- [x] Create new banner
 - [ ] Update banner
 - [ ] Delete a banner
 
