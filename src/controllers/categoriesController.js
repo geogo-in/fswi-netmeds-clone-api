@@ -23,6 +23,7 @@ exports.show = function(req, res, next) {
       return res.status(400).send({ error: 'Unable to find this resource' });
     })
 }
+
 // Create Category action
 exports.create = function(req, res, next) {
   const category = new Category({
@@ -40,12 +41,26 @@ exports.create = function(req, res, next) {
 
 // Update Category action
 exports.update = function(req, res, next) {
-  // TODO
+  // Update Category
+  Category.findByIdAndUpdate(req.params.id, req.body, function (error, Object) {
+    if (error) {
+      return res.status(422).send({ message: 'Unable to update this category', error: error })
+    } else {
+      return res.status(200).send(Object)
+    }
+  })
 }
 
 // Delete Category action
 exports.destroy = function(req, res, next) {
-  // TODO
+  // Delete Category
+  Category.findByIdAndDelete(req.params.id, function (error, Object) {
+    if (error) {
+      return res.status(422).send({ message: 'Unable to delete this category', error: error })
+    } else {
+      return res.status(200).send({success: 'Category deleted successfully'});
+    }
+  })
 }
 
 // Category Products
