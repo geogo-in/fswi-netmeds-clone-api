@@ -33,6 +33,6 @@ module.exports = (app) => {
   app.get('/banners', bannersController.index);
   app.get('/banners/:id', bannersController.show);
   app.post('/banners', upload.single('bannerImage'), bannersController.create);
-  app.put('/banners/:id', bannersController.update);
+  app.put('/banners/:id', upload.single('bannerImage'), bannersController.update);
   app.delete('/banners/:id', bannersController.destroy);
 }
