@@ -36,6 +36,6 @@ module.exports = (app) => {
   app.get('/products', productsController.index);
   app.get('/products/:id', productsController.show);
   app.post('/products', upload.single('productImage'), productsController.create);
-  app.put('/products/:id', productsController.update);
+  app.put('/products/:id', upload.single('productImage'), productsController.update);
   app.delete('/products/:id', productsController.destroy);
 }
