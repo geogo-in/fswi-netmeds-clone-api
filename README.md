@@ -8,15 +8,15 @@ Hey, let's make this repo all much rich as possible by contributing more endpoin
 - [x] Create new category
 - [x] View category details
 - [x] List all category products (medicines)
-- [ ] Update category
-- [ ] Delete a category
+- [x] Update category
+- [x] Delete a category
 
 ### Product
 - [x] API for listing all products (medicines)
 - [x] Create new product
 - [x] View product details
-- [ ] Update product
-- [ ] Delete a product
+- [x] Update product
+- [x] Delete a product
 
 ### User
 Users can signup to this application using email and password. 
@@ -40,8 +40,8 @@ Banners are image sliders that are present in website homepage.
 **Banner** model should have the following attributes: *bannerImage (type: image), isActive (type: boolean), linkedToUrl (type: string)*.
 - [x] API for listing all active banners
 - [x] Create new banner
-- [ ] Update banner
-- [ ] Delete a banner
+- [x] Update banner
+- [x] Delete a banner
 
 ### LabTest
 Users can order for lab tests. __LabTest__ model can have the following attributes: *name, description, cost, discountedCost, contactNumber, isActive (boolean)*.
