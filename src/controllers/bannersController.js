@@ -14,8 +14,7 @@ exports.index = function(req, res, next) {
 
 // Show Banner action
 exports.show = function(req, res, next) {
-  Product.findOne({ _id: req.params.id })
-    .populate('banner')
+  Banner.findOne({ _id: req.params.id })
     .then(banner => {
       return res.status(200).send(banner);
     })
@@ -40,12 +39,26 @@ exports.create = function(req, res, next) {
     })
   }
 
-// Update Product action
+// Update Banner action
 exports.update = function(req, res, next) {
-  // TODO
+  // Update Banner
+  Banner.findByIdAndUpdate(req.params.id, req.body, function (error, Object) {
+    if (error) {
+      return res.status(422).send({ message: 'Unable to update this banner', error: error })
+    } else {
+      return res.status(200).send(Object)
+    }
+  })
 }
 
-// Delete Product action
+// Delete Banner action
 exports.destroy = function(req, res, next) {
-  // TODO
+  // Delete Banner
+  Banner.findByIdAndDelete(req.params.id, function (error, Object) {
+    if (error) {
+      return res.status(422).send({ message: 'Unable to delete this banner', error: error })
+    } else {
+      return res.status(200).send({success: 'Banner deleted successfully'});
+    }
+  })
 }
