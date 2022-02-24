@@ -6,7 +6,7 @@ const storage = multer.diskStorage({
     callback(null, './uploads');
   },
   filename: function(req, file, callback) {
-    callback(null, new Date().toISOString() + file.originalname);
+    callback(null, new Date().toISOString().replace(/:/g, '-') + file.originalname);
   }
 })
 
@@ -36,6 +36,6 @@ module.exports = (app) => {
   app.get('/products', productsController.index);
   app.get('/products/:id', productsController.show);
   app.post('/products', upload.single('productImage'), productsController.create);
-  app.put('/products/:id', productsController.update);
+  app.put('/products/:id', upload.single('productImage'), productsController.update);
   app.delete('/products/:id', productsController.destroy);
 }

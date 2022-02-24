@@ -10,6 +10,7 @@ const keys = require('./config/keys');
 
 require('./src/models/Product');
 require('./src/models/Category');
+require('./src/models/Banner');
 // Setup DB
 mongoose.Promise = global.Promise;
 mongoose.connect(keys.mongoURI);
@@ -24,6 +25,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Add all routes
 require('./src/routes/productRoutes')(app);
 require('./src/routes/categoryRoutes')(app);
+require('./src/routes/bannerRoutes')(app);
 
 // Setup Server
 const port = process.env.PORT || 8080;
